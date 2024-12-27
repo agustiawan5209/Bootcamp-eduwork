@@ -1,60 +1,67 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
-body{
+
+body {
     width: 100%;
 }
 
-.navbar{
+.navbar {
     width: 100%;
     max-width: 100%;
     background-color: #3434f1;
     margin-bottom: 10px;
 }
-.navbar nav{
+
+.navbar nav {
     padding: 10px 20px 10px 20px;
     display: flex;
     justify-content: space-between;
 }
-.navbar > * {
+
+.navbar>* {
     color: #ffff;
 }
 
-.nav-link{
+.nav-link {
     padding-right: 20px;
     display: flex;
     justify-content: left;
     gap: 1em;
 }
-.nav-link a{
+
+.nav-link a {
     color: white;
     text-decoration: none;
 }
 
 /* Header */
-#section2{
+#section2 {
     width: 100%;
     height: 400px;
 }
-#section2 .header{
+
+#section2 .header {
     width: 100%;
     display: inline-flex;
 }
 
 
-#section2 .header > div{
+#section2 .header>div {
     width: 50%;
 }
+
 .header .header-text {
     display: flex;
-    gap:4px;
+    gap: 4px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.header .header-text button{
+
+.header .header-text button {
     padding: 10px;
     width: 20%;
     border: 0;
@@ -62,19 +69,26 @@ body{
     color: white;
     font-weight: 600;
 }
-.header .header-image img{
+
+.header .header-image img {
     width: 80%;
     height: auto;
 }
 
 @media (max-width: 768px) {
-    #section2 .header{
+    #section2 .header {
         flex-direction: column;
     }
-    #section2 .header > div{
+
+    .header .header-text {
+        font-size: 13px;
+    }
+
+    #section2 .header>div {
         width: 100%;
     }
-    .header .header-image img{
+
+    .header .header-image img {
         width: 100%;
         height: auto;
     }
@@ -82,21 +96,24 @@ body{
 
 /* Section 3 Biodata */
 
-#section3{
+#section3 {
     width: 100%;
     text-align: center;
 }
-#section3 h3{
+
+#section3 h3 {
     color: #0083fd;
     font-weight: 700;
     margin-bottom: 30px;
 }
-#section3 p{
+
+#section3 p {
     color: #040404;
     font-weight: 400;
     margin-bottom: 10px;
 }
-#section3 tr:not(:first-child) td{
+
+#section3 tr:not(:first-child) td {
     text-align: center;
     margin-bottom: 1em;
     padding: 5px;
@@ -106,24 +123,34 @@ body{
 
 /* section4 portfolio */
 
-#section4{
+#section4 {
     width: 100%;
     margin-top: 30px;
 }
-#section4 h2{
+
+#section4 h2 {
     color: #0083fd;
     font-weight: 700;
     margin-bottom: 30px;
     text-align: center;
 
 }
-#section4 .portofolio{
+
+#section4 .portofolio {
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: auto; /* Baris otomatis sesuai isi */
-  gap: 20px; 
+    grid-template-columns: repeat(3, 1fr); /* 3 kolom */
+    grid-template-rows: auto;
+    /* Baris otomatis sesuai isi */
+    gap: 20px;
 }
-#section4 .portofolio-image{
+
+#section4 .portofolio-image {
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    #section4 .portofolio {
+        grid-template-columns: 1fr;
+    }
 }
