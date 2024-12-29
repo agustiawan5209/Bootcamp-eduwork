@@ -6,6 +6,7 @@
 
 body {
     width: 100%;
+    margin-bottom: 50px;
 }
 
 .navbar {
@@ -116,9 +117,12 @@ body {
 #section3 tr:not(:first-child) td {
     text-align: center;
     margin-bottom: 1em;
-    padding: 5px;
+    padding: 20px;
     margin: 10px;
-    background-color: rgb(88, 236, 236);
+    background-color: rgb(226, 232, 232);
+    border: #040404;
+    border-radius: 20px;
+    
 }
 
 /* section4 portfolio */
@@ -126,6 +130,8 @@ body {
 #section4 {
     width: 100%;
     margin-top: 30px;
+    margin-bottom: 50px;
+
 }
 
 #section4 h2 {
@@ -147,6 +153,8 @@ body {
 
 #section4 .portofolio-image {
     width: 100%;
+    border-radius: 20px;
+    box-shadow:4px 6px 10px 0px rgb(37, 37, 37);
 }
 
 @media (max-width: 768px) {

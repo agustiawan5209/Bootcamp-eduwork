@@ -4,70 +4,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bootcamp</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Modern Bootcamp</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fontawsome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .navbar {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            border-radius: 50px;
+        }
+
+        .section-header {
+            padding: 100px 0;
+            text-align: center;
+            background-color: #0d6efd;
+            color: white;
+        }
+
+        .section-header h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+        }
+
+        footer a {
+            color: #0d6efd;
+        }
+    </style>
 </head>
 
 <body>
-
-    <!-- Section 1: Header -->
-    <header class="navbar">
-        <nav>
-            <div class="nav-logo" align="center">Navbar</div>
-            <div class="nav-link" align="right">
-                <a href="#section2">Header</a>
-                <a href="#section3">Biodata</a>
-                <a href="#section4">Portofolio</a>
-            </div>
-        </nav>
-    </header>
-    <!-- Section 2 : Judul Kiri dan Kanan Gambar -->
-
-    <section id="section2">
-        <div class="header">
-            <div class="header-text">
-                <h1>Selamat Datang Di Website Saya</h1>
-                <p>Website Pertemuan 1 Bootcamp Batch 1 Eduwork</p>
-                <button>Mulai</button>
-            </div>
-            <div class="header-image">
-                <img src="/image/Header.png" alt="Gambar Placeholder">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Bootcamp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#header">Header</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#biodata">Biodata</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portofolio">Portofolio</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        </d>
+    </nav>
 
-        <!-- Section 3 : Biodata dengan 6 Box -->
-
-
-        <table id="section3" cellspacing="10">
-            <tr>
-                <td colspan="3">
-                    <h3>Biodata Pengguna</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam, mollitia?</p>
-                </td>
-            </tr>
-            <tr>
-                <td align="center">box 1</td>
-                <td align="center">box 2</td>
-                <td align="center">box 3</td>
-            </tr>
-            <tr>
-                <td align="center">box 4</td>
-                <td align="center">box 5</td>
-                <td align="center">box 6</td>
-            </tr>
-        </table>
-
-        <!-- Section 4 : Porotfolio -->
-
-        <section id="section4">
-            <h2 >Portofolio</h2>
-            <div class="portofolio">
-                <div class="portofolio1"><img src="/image/pf (1).png" alt="" class="portofolio-image"></div>
-                <div class="portofolio2"><img src="/image/pf (2).png" alt="" class="portofolio-image"></div>
-                <div class="portofolio3"><img src="/image/pf (3).png" alt="" class="portofolio-image"></div>
+    <!-- Section 2: Header -->
+    <section id="header" class="section-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <h1>Selamat Datang Di Website Saya</h1>
+                    <p>Website Pertemuan 1 Bootcamp Batch 1 Eduwork</p>
+                    <button type="button" class="btn w-25 btn-light" data-bs-toggle="modal" data-bs-target="#modalInformation">
+                        Mulai
+                      </button>
+                </div>
+                <div class="col-lg-6">
+                    <img src="/image/Header.png" class="img-fluid" alt="Header Image">
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
+
+    <!-- Section 3: Biodata -->
+    <section id="biodata" class="container my-5">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Biodata Pengguna</h2>
+            <p class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam mollitia?</p>
+        </div>
+        <div class="row text-center">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card p-3">
+                    <i class="fas fa-user-circle fa-2x mb-2"></i>
+                    <h5 class="card-title">Nama</h5>
+                    <p>Agustiawan</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card p-3">
+                    <i class="fas fa-briefcase fa-2x mb-2"></i>
+                    <h5 class="card-title">Pekerjaan</h5>
+                    <p>Freelance</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card p-3">
+                    <i class="fas fa-graduation-cap fa-2x mb-2"></i>
+                    <h5 class="card-title">Pendidikan</h5>
+                    <p>Sarjana Teknik Informatika</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card p-3">
+                    <i class="fas fa-envelope fa-2x mb-2"></i>
+                    <h5 class="card-title">Email</h5>
+                    <p>Wa4407804@gmail.com</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card p-3">
+                    <i class="fas fa-phone fa-2x mb-2"></i>
+                    <h5 class="card-title">Telepon</h5>
+                    <p>+62 812-3456-7890</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card p-3">
+                    <i class="fas fa-map-marker-alt fa-2x mb-2"></i>
+                    <h5 class="card-title">Alamat</h5>
+                    <p>Makassar, Sulawesi Selatan</p>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Section 4: Portofolio -->
+    <section id="section4" class="container my-5">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Portofolio</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/image/pf (1).png" alt="Portofolio 1" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Project Puskesmas</h5>
+                        <p class="card-text">Website pengelolaan data imuniasi anak .</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/image/pf (2).png" alt="Portofolio 2" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Project Sanggar Seni</h5>
+                        <p class="card-text">Website CRM untuk penyewaan kostum dan jasa tari pada sanggar seni.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="/image/pf (3).png" alt="Portofolio 3" class="card-img-top">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Project Paud</h5>
+                        <p class="card-text">Website Pengelolaan Data anak pada paud untuk mengelola data kelas, data siswa dan orangtua, data guru, dan jadwal kelas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Modal Information -->
+    <div class="modal fade" id="modalInformation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="modalInformationLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="introModalLabel">Perkenalan Diri</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <i class="fas fa-laptop-code fa-3x mb-3"></i>
+                    <h4>Halo, Saya Agustiawan Biasa dipanggil Wawan</h4>
+                    <p>Saya adalah seorang programmer dengan pengalaman dalam pengembangan web dan aplikasi. Saya memiliki keahlian di berbagai bahasa pemrograman seperti HTML, CSS, JavaScript, dan PHP. Tujuan saya adalah menciptakan solusi yang efisien dan inovatif untuk kebutuhan teknologi Anda.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn w-auto btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Modal Information -->
+    <!-- Footer -->
+    <footer class="text-center">
+        <p>© 2024 Bootcamp Website | <a href="#">eduwork.com</a></p>
+    </footer>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
 </body>
 
 </html>
