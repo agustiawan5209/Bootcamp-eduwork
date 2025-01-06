@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Produk</title>
+</head>
+
+<body>
+    <h1>Daftar Produk</h1>
+
+    <label for="filter-price">Urutkan berdasarkan harga:</label>
+    <select name="filter-price" onchange="filterProduk(this)" id="filter-price">
+        <option value="all">Semua</option>
+        <option value="max">Tertinggi</option>
+        <option value="min">Terendah</option>
+    </select>
+
+    <table border="1" cellspacing="2">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Gambar</th>
+                <th>Nama</th>
+                <th>Harga</th>
+                <th>Deskripsi</th>
+            </tr>
+        </thead>
+        <tbody id="data-produk">
+        </tbody>
+    </table>
+
+    <script>
+        const product = [
+            {
+                nama: 'Pensil',
+                harga: 2000,
+                gambar: 'https://via.placeholder.com/200',
+                deskripsi: 'Deskripsi Pensil'
+            },
+            {
+                nama: 'Pulpen',
+                harga: 4000,
+                gambar: 'https://via.placeholder.com/200',
+                deskripsi: 'Deskripsi Pulpen'
+            },
+            {
+                nama: 'Penghapus',
+                harga: 1000,
+                gambar: 'https://via.placeholder.com/200',
+                deskripsi: 'Deskripsi Penghapus'
+            },
+        ];
+
+        const displayProduk = (dataProduct) => {
+            const tableProduk = document.getElementById('data-produk');
+            tableProduk.innerHTML = "";
+
+            dataProduct.forEach((product, index) => {
+                const trElement = document.createElement('tr');
+                trElement.className = 'product';
+                trElement.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td><img src="${product.gambar}" alt="${product.nama}" width="100"></td>
+                    <td>${product.nama}</td>
+                    <td>Rp${product.harga.toLocaleString()}</td>
+                    <td>${product.deskripsi}</td>
+                `;
+
+                tableProduk.appendChild(trElement);
+            });
+        };
+
+        const filterProduk = (e) => {
+            const price = e.value;
+            let sortedProducts = [...product];
+
+            if (price === 'max') {
+                sortedProducts.sort((a, b) => b.harga - a.harga);
+            } else if (price === 'min') {
+                sortedProducts.sort((a, b) => a.harga - b.harga);
+            }
+
+            displayProduk(sortedProducts);
+        };
+
+        // Tampilkan semua produk saat pertama kali dimuat
+        window.onload = function () {
+            displayProduk(product);
+        };
+    </script>
+</body>
+
+</html>
