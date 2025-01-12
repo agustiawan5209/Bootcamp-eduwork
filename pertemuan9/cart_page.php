@@ -5,14 +5,16 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cart Page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,12 +43,12 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
         <?php else: ?>
             <table class="table table-bordered align-middle text-center">
                 <colgroup>
-            <col>
-            <col style="width: 200px;">
-            <col>
-            <col>
-            <col>
-            </colgroup>
+                    <col>
+                    <col style="width: 200px;">
+                    <col>
+                    <col>
+                    <col>
+                </colgroup>
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">Nama</th>
@@ -59,11 +61,17 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
                 <tbody>
                     <?php foreach ($cart as $index => $item): ?>
                         <tr>
-                            <td><?= htmlspecialchars($item['nama']); ?></td>
+                            <td><?= htmlspecialchars($item['nama']); ?> </td>
                             <td>
                                 <div class="input-group justify-content-center">
                                     <button class="btn btn-danger btn-sm" onclick="updateQuantity(<?= $index ?>, 'decrease')">-</button>
-                                    <input type="number" id="quantity<?= $index ?>" class="form-control text-center" value="<?= htmlspecialchars($item['quantity']); ?>" min="1" readonly>
+                                    <input type="number"
+                                        id="quantity<?= $index ?>"
+                                        class="form-control text-center w-25"
+                                        value="<?= htmlspecialchars($item['quantity']); ?>"
+                                        min="1"
+                                        readonly
+                                        data-price="<?= htmlspecialchars($item['harga']); ?>">
                                     <button class="btn btn-success btn-sm" onclick="updateQuantity(<?= $index ?>, 'increase')">+</button>
                                 </div>
                             </td>
@@ -94,15 +102,19 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
             // Update quantity in input field
             quantityInput.value = currentQuantity;
 
-            const itemPrice = <?= json_encode(array_column($cart, 'harga')); ?>[index];
+            // Get item price from data-price attribute
+            const itemPrice = parseFloat(quantityInput.dataset.price);
+
+            // Update total price
             totalElement.textContent = new Intl.NumberFormat('id-ID').format(currentQuantity * itemPrice);
         }
+
 
         function removeItem(index) {
             if (confirm('Apakah Anda yakin ingin menghapus item ini?')) {
                 // Send a request to the server to remove the item
                 fetch(`remove_cart_item.php?index=${index}`)
-                  .then(() => location.reload());
+                    .then(() => location.reload());
 
                 alert('Fitur hapus item belum terintegrasi ke server.');
             }
@@ -111,4 +123,5 @@ $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : [];
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
